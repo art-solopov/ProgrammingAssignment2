@@ -3,7 +3,7 @@
 
 ## Write a short comment describing this function
 
-cache_invakeCacheMatrix <- function(x = matrix()) {
+makeCacheMatrix <- function(x = matrix()) {
     cached_inv <- NULL
     set <- function(y)
     {
@@ -23,5 +23,10 @@ cache_invakeCacheMatrix <- function(x = matrix()) {
 ## Write a short comment describing this function
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+  if(is.null(x$get_cached_inv()))
+  {
+    data <- x$get()
+    x$set_cached_inv(solve(data))
+  }
+  x$get_cached_inv()
 }
