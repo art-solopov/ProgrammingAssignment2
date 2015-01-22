@@ -3,7 +3,19 @@
 
 ## Write a short comment describing this function
 
-makeCacheMatrix <- function(x = matrix()) {
+cache_invakeCacheMatrix <- function(x = matrix()) {
+    cached_inv <- NULL
+    set <- function(y)
+    {
+        x <<- y
+        cached_inv <<- NULL
+    }
+    get <- function() x
+    set_cached_inv <- function(inv) cached_inv <<- inv
+    get_cached_inv <- function() cached_inv
+    list(set = set, get = get,
+         set_cached_inv = set_cached_inv,
+         get_cached_inv = get_cached_inv)
 
 }
 
